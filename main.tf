@@ -1,3 +1,4 @@
+# kms module refered
 module "Kms_module" {
   source = "git::https://github.com/Digidense/terraform_module.git//kms?ref=feature/DD-35/kms_module"
   aliases_name            = "alias/Kms_Demo_Module"
@@ -5,6 +6,7 @@ module "Kms_module" {
   deletion_window_in_days = 7
   enable_key_rotation     = true
 }
+
 # Creating the sns topic
 resource "aws_sns_topic" "Demo_Topic" {
   name              = var.sns_name
