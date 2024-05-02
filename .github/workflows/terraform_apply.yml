@@ -1,10 +1,14 @@
-name: Terraform_Apply_Code
+name: Terraform CI/CD
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - development
   pull_request:
     branches:
       - development
+
 
 jobs:
   terraform:
@@ -35,7 +39,6 @@ jobs:
         run: terraform validate
 
       - name: Terraform Plan
-        working-directory: .
         run: terraform plan -out=tfplan
 
       - name: Terraform Apply
