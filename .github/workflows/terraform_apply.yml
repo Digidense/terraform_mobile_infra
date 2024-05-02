@@ -35,7 +35,7 @@ jobs:
         run: terraform validate
 
       - name: Terraform Plan
-        working-directory: ./terraform   # Specify the working directory
+        working-directory: .
         run: terraform plan -out=tfplan
 
       - name: Terraform Apply
