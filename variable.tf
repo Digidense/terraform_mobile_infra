@@ -1,7 +1,7 @@
 variable "description" {
   type        = string
   description = "The description for the KMS key"
-  default     = "Kms_keyss"
+  default     = "Kms_keysssdwd"
 }
 
 variable "deletion_window_in_days" {
