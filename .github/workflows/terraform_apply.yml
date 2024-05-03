@@ -1,4 +1,4 @@
-name: CI/CD
+name: Apply_infrastructure
 
 on:
   workflow_dispatch:
