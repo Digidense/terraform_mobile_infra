@@ -47,7 +47,7 @@ resource "aws_iam_policy_attachment" "eks_cluster_policy_attachment" {
 
 # Vpc module reffering to create eks cluster
 module "vpc_module" {
-  source = "git::https://github.com/Digidense/terraform_module.git//vpc?ref=v2.0.0"
+  source = "https://Ashwini-Kanagaraj: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@github.com/Digidense/terraform_module.git?ref=v2.0.0"
 }
 
 # Creating the eks cluster
