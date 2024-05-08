@@ -1,5 +1,5 @@
 module "vpc_modules" {
-  source = "git::git@github.com:Digidense/terraform_module.git//vpc?ref=v2.0.0"
+  source = "git::ssh://git@github.com/Digidense/terraform_module.git//vpc?ref=v2.0.0"
 
   cidr                 = var.cidr
   enable_dns           = var.enable_dns
