@@ -1,4 +1,4 @@
-module "vpc_modules" {
+module "vpc_module" {
   source = "git::ssh://git@github.com/Digidense/terraform_module.git//vpc?ref=v2.0.0"
 
   cidr                 = var.cidr
