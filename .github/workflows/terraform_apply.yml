@@ -16,7 +16,9 @@ jobs:
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Add this line
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GIT_COMMITTER_NAME: ${{ secrets.GIT_COMMITTER_NAME }}
+      GIT_COMMITTER_EMAIL: ${{ secrets.GIT_COMMITTER_EMAIL }} # Add this line
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -27,7 +29,9 @@ jobs:
           terraform_version: 1.1.0
     
       - name: Configure AWS Credentials
-        run: echo "AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}" >> $GITHUB_ENV && echo "AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}" >> $GITHUB_ENV
+        run: |
+          echo "AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}" >> $GITHUB_ENV
+          echo "AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}" >> $GITHUB_ENV
       
       - name: Terraform Init
         run: terraform init -upgrade=true
