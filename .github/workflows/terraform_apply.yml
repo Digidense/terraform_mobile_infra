@@ -17,8 +17,7 @@ jobs:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      GIT_COMMITTER_NAME: ${{ secrets.GIT_COMMITTER_NAME }}
-      GIT_COMMITTER_EMAIL: ${{ secrets.GIT_COMMITTER_EMAIL }} # Add this line
+      
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
