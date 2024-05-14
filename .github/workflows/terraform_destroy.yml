@@ -1,11 +1,7 @@
-name: Destroy_infrastructure
+name: Destroy Infrastructure
 
 on:
-  workflow_dispatch:
   push:
-    branches:
-      - development
-  pull_request:
     branches:
       - development
 
