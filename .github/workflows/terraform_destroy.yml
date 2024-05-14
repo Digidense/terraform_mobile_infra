@@ -3,8 +3,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - destroy-infrastructure
-
+      - development
 jobs:
   terraform_destroy:
     name: Terraform Destroy
@@ -26,6 +25,30 @@ jobs:
 
       - name: Terraform Init
         run: terraform init
+        # Adding debug information
+        env:
+          TF_LOG: DEBUG
+
+      - name: Check Terraform State
+        run: terraform state list
+        # Adding debug information
+        env:
+          TF_LOG: DEBUG
+
+      - name: Terraform Plan Destroy
+        run: terraform plan -destroy
+        # Adding debug information
+        env:
+          TF_LOG: DEBUG
 
       - name: Terraform Destroy
         run: terraform destroy -auto-approve
+        # Adding debug information
+        env:
+          TF_LOG: DEBUG
+
+      - name: Post-Destroy Check
+        run: terraform state list
+        # Adding debug information
+        env:
+          TF_LOG: DEBUG
