@@ -1,31 +1,56 @@
-name: Destroy Infrastructure
+name: Terraform Destroy
 on:
   workflow_dispatch:
   push:
     branches:
-      - destroy-infrastructure
+      - development
 
 jobs:
-  terraform_destroy:
-    name: Terraform Destroy
+  tf-destroy:
     runs-on: ubuntu-latest
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_REGION: 'us-west-1'
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Setup Terraform
+        
+      - name: Setup Terraform                                                                      
         uses: hashicorp/setup-terraform@v1
-        with:
-          terraform_version: 1.1.0
-
-      - name: Configure AWS Credentials
-        run: echo "AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}" >> $GITHUB_ENV && echo "AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}" >> $GITHUB_ENV
 
       - name: Terraform Init
+        id: init
         run: terraform init
+        env:
+          TF_LOG: DEBUG
+
+      - name: Show Terraform Version
+        run: terraform version
+
+      - name: List Terraform Files
+        run: ls -l
+
+      - name: Validate Terraform Configuration
+        run: terraform validate
+        continue-on-error: true
+        env:
+          TF_LOG: DEBUG
+
+      - name: Show Destroy Plan
+        id: plan
+        run: terraform plan -destroy
+        continue-on-error: true
+        env:
+          TF_LOG: DEBUG
 
       - name: Terraform Destroy
+        id: destroy
         run: terraform destroy -auto-approve
+        env:
+          TF_LOG: DEBUG
+
+      - name: Post-Destroy Check
+        run: terraform state list || echo "No resources found"
+        env:
+          TF_LOG: DEBUG
