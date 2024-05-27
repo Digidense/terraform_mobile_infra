@@ -1,4 +1,4 @@
-name: Apply_infrastructure for API
+name: Apply_infrastructure for AP
 
 on:
   push:
