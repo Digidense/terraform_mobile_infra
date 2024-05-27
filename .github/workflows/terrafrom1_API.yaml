@@ -1,5 +1,4 @@
-name: Apply_infrastructure for AP
-
+name: Apply_infrastructure for API
 on:
   push:
     branches:
