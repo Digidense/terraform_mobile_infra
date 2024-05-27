@@ -9,7 +9,7 @@ on:
       - feature/DD-46-API_GW
 
 jobs:
-  deploy-ingress-controller:
+  deploy-API:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
