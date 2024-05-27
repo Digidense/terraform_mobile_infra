@@ -26,7 +26,10 @@ jobs:
     
       - name: Configure AWS Credentials
         run: echo "AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}" >> $GITHUB_ENV && echo "AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}" >> $GITHUB_ENV
-      
+     
+      - name: Show AWS Identity
+        run: aws sts get-caller-identity
+    
       - name: Terraform Init
         run: terraform init
       
