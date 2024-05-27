@@ -1,5 +1,5 @@
 module "cluster_modules" {
-  source                      = "./modules/Cluster_module"
+  source                      = "git::https://github.com/Digidense/terraform_module.git//eks?ref=v3.0.0"
   role_name                   = var.role_name
   node_attachment_name        = var.node_attachment_name
   eks_cluster_attachment_name = var.eks_cluster_attachment_name
