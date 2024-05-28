@@ -17,7 +17,7 @@ resource "aws_api_gateway_resource" "test_resource" {
 # Define Lambda function
 resource "aws_lambda_function" "api_lambda" {
   filename      = var.lambda_zip_file
-  function_name = "${var.lambda_function_name}-${timestamp()}"
+  function_name = var.lambda_function_name
   role          = aws_iam_role.lambda_role.arn
   handler       = var.lambda_handler
   runtime       = var.lambda_runtime
