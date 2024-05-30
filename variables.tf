@@ -1,19 +1,19 @@
 variable "role_name" {
   type        = string
   description = "Name of the IAM role for the EKS cluster"
-  default     = "Eks_policy_role'S"
+  default     = "Eks_policy_roleS"
 }
 
 variable "node_attachment_name" {
   type        = string
   description = "Name of the IAM policy attachment for the EKS node group"
-  default     = "Eks_node_attachment'S"
+  default     = "Eks_node_attachmentS"
 }
 
 variable "eks_cluster_attachment_name" {
   type        = string
   description = "Name of the IAM policy attachment for the EKS cluster"
-  default     = "Eks_policy_attachment'S"
+  default     = "Eks_policy_attachmentS"
 }
 
 variable "eks_cluster_name" {
@@ -48,7 +48,7 @@ variable "addons_versions" {
 variable "node_group_name" {
   type        = string
   description = "Name of the EKS cluster"
-  default     = "Node_Group'S"
+  default     = "Node_GroupS"
 }
 
 variable "cluster_version" {
