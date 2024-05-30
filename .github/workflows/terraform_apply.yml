@@ -4,10 +4,10 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - feature/DD-41/eks_cluster
+      - development
   pull_request:
     branches:
-      - feature/DD-41/eks_cluster
+      - development
 
 jobs:
   terraform:
