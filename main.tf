@@ -1,6 +1,7 @@
 module "eks" {
   source                      = "git::https://github.com/Digidense/terraform_module.git//eks?ref=feature/DD-41/eks_cluster"
   role_name                   = var.role_name
+  region                      = var.region
   node_attachment_name        = var.node_attachment_name
   eks_cluster_attachment_name = var.eks_cluster_attachment_name
   eks_cluster_name            = var.eks_cluster_name
