@@ -4,4 +4,5 @@ module "API_Module" {
   lambda_handler       = var.lambda_handler
   lambda_runtime       = var.lambda_runtime
   lambda_function_name = var.lambda_function_name
+  ingress_nlb          = var.ingress_nlb
 }
