@@ -1,5 +1,5 @@
 module "rds_database" {
-  source                  = "./modules/rds"
+  source                  = "git::https://github.com/Digidense/terraform_module.git//rds?ref=feature/DD-44/rds_database"
   secret_name             = var.secret_name
   secret-tags             = var.secret-tags
   db_username             = var.db_username
